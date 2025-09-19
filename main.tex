@@ -37,8 +37,16 @@
 % Paquete para personalizar títulos según APA
 \usepackage{titlesec}
 
-% Configuración de títulos según normas APA
-\titleformat{\section}[block]{\centering\bfseries}{}{0em}{}
+% Paquete para encabezados personalizados (números de página arriba a la derecha)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{14.5pt}
+
+% Configuración de títulos según normas APA, con secciones en nueva página y enumeradas
+\titleformat{\section}[block]{\centering\bfseries}{}{0em}{\clearpage\thesection.\quad}
 \titleformat{\subsection}[block]{\bfseries}{}{0em}{}
 \titleformat{\subsubsection}[block]{\bfseries\itshape}{}{0em}{}
 \titleformat{\paragraph}[runin]{\hspace{0.5in}\bfseries}{}{0em}{}[.]
@@ -72,17 +80,11 @@ UNIVERSIDAD MARTIN LUTERO, SEDE JALAPA DURANTE EL PRIMER SEMESTRE DEL AÑO 2025}
 % Dedicatoria
 \input{dedicatoria}
 
-\newpage
-
 % Agradecimientos
 \input{agradecimientos}
 
-\newpage
-
 % Abstract
 \input{abstract}
-
-\newpage
 
 % Resumen
 \input{resumen}

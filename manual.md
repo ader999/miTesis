@@ -171,6 +171,8 @@ Se debe aplicar un punto (.) al final del título. El texto debe seguir en la mi
 
 Guía APA aquí: https://normasapa.in/titulos-y-subtitulos/
 
+**Nota para este proyecto de tesis**: Los títulos de nivel 1 (secciones) están configurados para comenzar en una nueva página y ser enumerados (1, 2, 3, etc.) para una mejor organización del documento.
+
 ## Portada en formato APA
 
 ### ¿Cómo hacer una portada en formato APA?
