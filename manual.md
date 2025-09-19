@@ -170,3 +170,46 @@ Se debe aplicar un punto (.) al final del título. El texto debe seguir en la mi
 ¿Porqué se debe aplicar una margen de 2,5 en la parte inferior de un proyecto con apa?. [El texto debe seguir en la misma línea]
 
 Guía APA aquí: https://normasapa.in/titulos-y-subtitulos/
+
+## Portada en formato APA
+
+### ¿Cómo hacer una portada en formato APA?
+
+Las Normas APA son la metodología internacional para desarrollar trabajos escritos, sus siglas provienen de American Psychological Association y son un estándar común para la presentación de proyectos académicos alrededor del mundo; en éste tipo de formato la portada debe ser la página principal. Consulte a continuación el formato y pautas especificas para la elaboración y presentación de las portadas:
+
+#### Formato para la presentación de una portada con Normas APA
+
+- Papel tamaño carta (21.59 cm x 27.94 cm)
+- El tamaño de la fuente debe ser Times New Roman de 12 puntos (Con séptima edición puedes hacer uso de Arial, Calibri y Georgia con 11 puntos / Lucida Sans Unicode con 10 puntos)
+- Cada palabra del título debe iniciar en Mayúscula
+- En cuanto a los márgenes, deberás manejar la cifra de 2.54cm en todos los bordes de la página
+- Numeración en paralelo con el encabezado, mientras que el interlineado debe ser doble.
+
+#### ¿Cuál es la estructura de una Portada con Normas APA?
+
+- **Numeración**: Número de la página debe ser (1), alineado en la zona superior derecha
+- **Título del proyecto**: El título debe resumir la idea principal del proyecto, la longitud no debe superar las 12 palabras, el encabezado debe estar en negrita, con alineación centrada y cada palabra debe iniciar en mayúscula al ser un encabezado de nivel 1.
+- **Nombre del autor**: Nombre completo del o los autores (Estudiante, investigador, docente). Si hay más de dos autores con una o varias afiliaciones se debe respetar las siguientes pautas:
+  - Condición: Si el proyecto tiene dos autores de la misma Universidad
+    - Ejemplo: Andrés Rivas y Carlos Ochoa
+      - Universidad Militar, Bogotá D.C, Colombia.
+  - Condición: Si el proyecto tiene tres autores de la misma Universidad
+    - Ejemplo: Carlos Restrepo, Camila López y Juan Duque
+      - Universidad Nacional, Medellín
+  - Condición: Si el proyecto tiene dos autores con diferente Universidad
+    - Ejemplo: Andrés Rivas
+      - Universidad Militar, Bogotá D.C
+      - Camila López
+      - Universidad Nacional, Medellín
+  - Condición: Si el proyecto tiene tres o más autores con diferentes Universidades
+    - Ejemplo: Carlos Restrepo, Laura Vélez y Juan Duque
+      - Universidad Nacional, Medellín
+      - Andrés Rivas
+      - Universidad Militar, Bogotá D.C
+- **Facultad, Universidad, Colegio**: Nombre de la Institución junto con la ubicación
+- **Carrera, programa, facultad, asignatura**: Nombre del curso, título o mención
+- **Nombre del profesor, director o instructor**: Ejemplo (Ingeniero: Moisés Enrique Beltrán)
+- **Ubicación**: Lugar de presentación (Ciudad, provincia, estado)
+- **Año de presentación**: Fecha de publicación (Ejemplo: 23 de mayo de 2022).
+
+Guía APA aquí: https://normasapa.in/como-hacer-una-portada/
