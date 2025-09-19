@@ -1,0 +1,105 @@
+\documentclass[12pt,a4paper]{report}
+
+% Paquetes para codificación y fuentes
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{newtxtext,newtxmath} % Times New Roman
+
+% Márgenes APA (1 pulgada en todos los lados)
+\usepackage[margin=1in]{geometry}
+
+% Espaciado doble
+\usepackage{setspace}
+\doublespacing
+
+% Indentación de párrafos (0.5 pulgadas)
+\usepackage{indentfirst}
+\setlength{\parindent}{0.5in}
+
+% Paquetes para figuras y gráficos (APA 7ma edición)
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% Configuración de figuras según APA
+\captionsetup{
+    font=small,
+    labelfont=bf,
+    format=plain,
+    justification=justified,
+    singlelinecheck=false
+}
+
+% Paquete para estilo APA 7ma edición
+\usepackage[style=apa,backend=biber]{biblatex}
+
+% Paquete para personalizar títulos según APA
+\usepackage{titlesec}
+
+% Configuración de títulos según normas APA
+\titleformat{\section}[block]{\centering\bfseries}{}{0em}{}
+\titleformat{\subsection}[block]{\bfseries}{}{0em}{}
+\titleformat{\subsubsection}[block]{\bfseries\itshape}{}{0em}{}
+\titleformat{\paragraph}[runin]{\hspace{0.5in}\bfseries}{}{0em}{}[.]
+\titleformat{\subparagraph}[runin]{\hspace{0.5in}\bfseries\itshape}{}{0em}{}[.]
+
+% Agregar archivo de bibliografía
+\addbibresource{referencias.bib}
+
+% Ruta de las figuras
+\graphicspath{{figuras/}{figuras/primera_encuesta/}{figuras/segunda_encuesta/}}
+
+% Información de la tesis
+\title{EVALUAR LA IMPLEMENTACION DE UN SISTEMA WEB (PLANEAUML) PARA DIGITALISACION Y OPTIMISACION DE LOS PLANES DE ESTUDIO EN LA
+UNIVERSIDAD MARTIN LUTERO, SEDE JALAPA DURANTE EL PRIMER SEMESTRE DEL AÑO 2025}
+\author{Ader Yasmir Zeas Rocha}
+\date{\today}
+
+% Información adicional
+\newcommand{\tutor}{[Nombre del Tutor]}
+\newcommand{\universidad}{Universidad Martin Lutero}
+\newcommand{\carrera}{[Nombre de la Carrera]}
+\newcommand{\lugar}{Jalapa, Nueva Segovia, Nicaragua}
+
+\begin{document}
+
+% Portada (Cover Page) según APA 7ma edición
+\input{portada}
+
+
+
+% Tabla de contenidos
+\tableofcontents
+
+\newpage
+
+% Introducción
+\input{introduction}
+
+% Marco Teórico
+\input{marco_teorico}
+
+% Metodología
+\input{metodologia}
+
+% Resultados o Hallazgos
+\input{resultados}
+
+% Discusión
+\input{discusion}
+
+% Recomendaciones
+\input{recomendaciones}
+
+% Conclusiones
+\input{conclusiones}
+
+% Bibliografía
+\input{bibliografia}
+
+% Anexos
+\appendix
+\input{anexos}
+
+\end{document}
