@@ -3,7 +3,7 @@
 % Paquetes para codificación y fuentes
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{newtxtext,newtxmath} % Times New \part{Roman}
+\usepackage{newtxtext,newtxmath} % Times New Roman
 
 % Márgenes APA (1 pulgada en todos los lados)
 \usepackage[margin=1in]{geometry}
@@ -24,11 +24,11 @@
 
 % Configuración de figuras según APA
 \captionsetup{
-    font=small,
-    labelfont=bf,
-    format=plain,
-    justification=justified,
-    singlelinecheck=false
+	font=small,
+	labelfont=bf,
+	format=plain,
+	justification=justified,
+	singlelinecheck=false
 }
 
 % Paquete para estilo APA 7ma edición
@@ -58,9 +58,9 @@
 % Ruta de las figuras
 \graphicspath{{figuras/}{figuras/primera_encuesta/}{figuras/segunda_encuesta/}}
 
-% Información de la tesis
-\title{EVALUAR LA IMPLEMENTACION DE UN SISTEMA WEB (PLANEAUML) PARA DIGITALISACION Y OPTIMISACION DE LOS PLANES DE ESTUDIO EN LA
-UNIVERSIDAD MARTIN LUTERO, SEDE JALAPA DURANTE EL PRIMER SEMESTRE DEL AÑO 2025}
+% --- CORRECCIÓN DEL TÍTULO ---
+% Se añaden saltos de línea (\\) para que el título no se corte
+\title{EVALUAR LA IMPLEMENTACIÓN DE UN SISTEMA WEB (PLANEAUML) PARA LA DIGITALIZACIÓN Y OPTIMIZACIÓN DE LOS PLANES DE ESTUDIO EN LA UNIVERSIDAD MARTÍN LUTERO, SEDE JALAPA DURANTE EL PRIMER SEMESTRE DEL AÑO 2025}
 \author{Ader Yasmir Zeas Rocha}
 \date{\today}
 
@@ -71,60 +71,87 @@ UNIVERSIDAD MARTIN LUTERO, SEDE JALAPA DURANTE EL PRIMER SEMESTRE DEL AÑO 2025}
 \newcommand{\lugar}{Jalapa, Nueva Segovia, Nicaragua}
 
 \begin{document}
-
-% Portada (Cover Page) según APA 7ma edición
-\input{portada}
-
-\newpage
-
-% Dedicatoria
-\input{dedicatoria}
-
-% Agradecimientos
-\input{agradecimientos}
-
-% Abstract
-\input{abstract}
-
-% Resumen
-\input{resumen}
-
-\newpage
-
-% Tabla de contenidos
-\tableofcontents
-
-\newpage
-
-% Reiniciar contador de secciones para que comience en 1
-\setcounter{section}{0}
-
-% Introducción
-\input{introduction}
-
-% Marco Teórico
-\input{marco_teorico}
-
-% Metodología
-\input{metodologia}
-
-% Resultados o Hallazgos
-\input{resultados}
-
-% Discusión
-\input{discusion}
-
-% Recomendaciones
-\input{recomendaciones}
-
-% Conclusiones
-\input{conclusiones}
-
-% Bibliografía
-\input{bibliografia}
-
-% Anexos
-\appendix
-\input{anexos}
-
+	
+	% Portada (Cover Page) según APA 7ma edición
+	\input{portada}
+	
+	% --- SECCIONES PRELIMINARES CON FORMATO MANUAL ---
+	% De esta forma, no entran en conflicto con las reglas de \section
+	
+	\clearpage
+	\begin{center}\bfseries Dedicatoria \end{center}
+	\addcontentsline{toc}{section}{Dedicatoria}
+	\vspace{1cm} % Espacio opcional después del título
+	\input{dedicatoria} % El archivo dedicatoria.tex solo debe contener el texto
+	
+	\clearpage
+	\begin{center}\bfseries Agradecimientos \end{center}
+	\addcontentsline{toc}{section}{Agradecimientos}
+	\vspace{1cm}
+	\input{agradecimientos} % El archivo agradecimientos.tex solo debe contener el texto
+	
+	\clearpage
+	\begin{center}\bfseries Abstract \end{center}
+	\addcontentsline{toc}{section}{Abstract}
+	\vspace{1cm}
+	\input{abstract} % El archivo abstract.tex solo debe contener el texto
+	
+	\clearpage
+	\begin{center}\bfseries Resumen \end{center}
+	\addcontentsline{toc}{section}{Resumen}
+	\vspace{1cm}
+	\input{resumen} % El archivo resumen.tex solo debe contener el texto
+	
+	\clearpage
+	% Tabla de contenidos
+	\tableofcontents
+	
+	\clearpage
+	
+	% Reiniciar contador de secciones para que la Introducción comience en 1
+	% Esto asegura que la Introducción será la sección No. 1
+	\setcounter{section}{0} 
+	
+	% --- A PARTIR DE AQUÍ COMIENZAN LAS SECCIONES NUMERADAS ---
+	
+	% Introducción
+	\section{Introducción}
+	\input{introduction}
+	
+	% Marco Teórico
+	\section{Marco Teórico}
+	\input{marco_teorico}
+	
+	% Metodología
+	\section{Metodología}
+	\input{metodologia}
+	
+	% Resultados o Hallazgos
+	\section{Resultados}
+	\input{resultados}
+	
+	% Discusión
+	\section{Discusión}
+	\input{discusion}
+	
+	% Recomendaciones
+	\section{Recomendaciones}
+	\input{recomendaciones}
+	
+	% Conclusiones
+	\section{Conclusiones}
+	\input{conclusiones}
+	
+	\clearpage
+	% Bibliografía (sin numeración y añadida a la tabla de contenidos)
+	\section*{Bibliografía}
+	\addcontentsline{toc}{section}{Bibliografía}
+	\printbibliography[heading=none] % heading=none para que no cree su propio título
+	
+	% Anexos
+	\appendix
+	\clearpage
+	\section{Anexos}
+	\input{anexos}
+	
 \end{document}
