@@ -2,7 +2,7 @@
     "latex-workshop.latex.tools": [
         {
             "name": "pdflatex",
-            "command": "pdflatex",
+            "command": "./pdflatex-nix.sh",
             "args": [
                 "-synctex=1",
                 "-interaction=nonstopmode",
@@ -12,9 +12,21 @@
         },
         {
             "name": "biber",
-            "command": "biber",
+            "command": "./biber-nix.sh",
             "args": [
                 "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "latexmk",
+            "command": "./latexmk-nix.sh",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
             ]
         }
     ],
@@ -27,7 +39,16 @@
                 "pdflatex",
                 "pdflatex"
             ]
+        },
+        {
+            "name": "latexmk",
+            "tools": [
+                "latexmk"
+            ]
         }
     ],
+    "latex-workshop.latex.recipe.default": "latexmk",
+    "latex-workshop.latex.rootFile.doNotPrompt": true,
+    "latex-workshop.latex.rootFile.useSubFile": false,
     "latex-workshop.view.pdf.viewer": "tab"
 }

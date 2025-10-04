@@ -45,6 +45,12 @@
 \renewcommand{\headrulewidth}{0pt}
 \setlength{\headheight}{14.5pt}
 
+% Configuración de títulos según normas APA, con secciones en nueva página y enumeradas
+\titleformat{\section}[block]{\centering\bfseries}{}{0em}{\clearpage\thesection.\quad}
+\titleformat{\subsection}[block]{\bfseries}{}{0em}{}
+\titleformat{\subsubsection}[block]{\bfseries\itshape}{}{0em}{}
+\titleformat{\paragraph}[runin]{\hspace{0.5in}\bfseries}{}{0em}{}[.]
+\titleformat{\subparagraph}[runin]{\hspace{0.5in}\bfseries\itshape}{}{0em}{}[.]
 
 % Agregar archivo de bibliografía
 \addbibresource{referencias.bib}
@@ -52,6 +58,9 @@
 % Ruta de las figuras
 \graphicspath{{figuras/}{figuras/primera_encuesta/}{figuras/segunda_encuesta/}}
 
+% --- CORRECCIÓN DEL TÍTULO ---
+% Se añaden saltos de línea (\\) para que el título no se corte
+\title{EVALUAR LA IMPLEMENTACIÓN DE UN SISTEMA WEB (PLANEAUML) PARA LA DIGITALIZACIÓN Y OPTIMIZACIÓN DE LOS PLANES DE ESTUDIO EN LA UNIVERSIDAD MARTÍN LUTERO, SEDE JALAPA DURANTE EL PRIMER SEMESTRE DEL AÑO 2025}
 \author{Ader Yasmir Zeas Rocha}
 \date{\today}
 
@@ -93,11 +102,8 @@
 	\vspace{1cm}
 	\input{resumen} % El archivo resumen.tex solo debe contener el texto
 	
-	\clearpage
 	% Tabla de contenidos
 	\tableofcontents
-	
-	\clearpage
 	
 	% Reiniciar contador de secciones para que la Introducción comience en 1
 	% Esto asegura que la Introducción será la sección No. 1
