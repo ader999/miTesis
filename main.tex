@@ -41,12 +41,28 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
+\fancyhead[L]{\nouppercase{\leftmark}} % Usamos \leftmark para mostrar solo títulos de sección
 \fancyhead[R]{\thepage}
 \renewcommand{\headrulewidth}{0pt}
 \setlength{\headheight}{14.5pt}
 
-% Configuración de títulos según normas APA, con secciones en nueva página y enumeradas
-\titleformat{\section}[block]{\centering\bfseries}{}{0em}{\clearpage\thesection.\quad}
+% --- CONFIGURACIÓN DE TÍTULOS Y ENCABEZADOS ---
+
+% 1. Redefinir \sectionmark para que no incluya el número.
+%    Esto hace que \leftmark (usado en el encabezado) solo contenga el título de la sección.
+\makeatletter
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+% 2. Redefinir \subsectionmark para que no actualice el encabezado
+\renewcommand{\subsectionmark}[1]{}
+\makeatother
+
+% 2. Asegurar que cada \section comience en una nueva página y esté centrada.
+%    Se usa \titlespacing para añadir un \clearpage antes de la sección.
+\titleformat{\section}[block]{\centering\bfseries}{\thesection.}{1em}{}
+\let\oldsection\section
+% \renewcommand{\section}[1]{\clearpage\oldsection{#1}} % Se elimina para control manual
+
+
 \titleformat{\subsection}[block]{\bfseries}{}{0em}{}
 \titleformat{\subsubsection}[block]{\bfseries\itshape}{}{0em}{}
 \titleformat{\paragraph}[runin]{\hspace{0.5in}\bfseries}{}{0em}{}[.]
@@ -112,30 +128,37 @@
 	% --- A PARTIR DE AQUÍ COMIENZAN LAS SECCIONES NUMERADAS ---
 	
 	% Introducción
+	\clearpage
 	\section{Introducción}
 	\input{introduction}
 	
 	% Marco Teórico
+	\clearpage
 	\section{Marco Teórico}
 	\input{marco_teorico}
 	
 	% Metodología
+	\clearpage
 	\section{Metodología}
 	\input{metodologia}
 	
 	% Resultados o Hallazgos
+	\clearpage
 	\section{Resultados}
 	\input{resultados}
 	
 	% Discusión
+	\clearpage
 	\section{Discusión}
 	\input{discusion}
 	
 	% Recomendaciones
+	\clearpage
 	\section{Recomendaciones}
 	\input{recomendaciones}
 	
 	% Conclusiones
+	\clearpage
 	\section{Conclusiones}
 	\input{conclusiones}
 	
