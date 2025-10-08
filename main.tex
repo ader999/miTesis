@@ -32,7 +32,8 @@
 }
 
 % Paquete para estilo APA 7ma edición
-\usepackage[style=apa,backend=biber]{biblatex}
+\usepackage[style=authoryear, backend=biber]{biblatex}
+
 
 % Paquete para personalizar títulos según APA
 \usepackage{titlesec}
@@ -63,10 +64,10 @@
 % \renewcommand{\section}[1]{\clearpage\oldsection{#1}} % Se elimina para control manual
 
 
-\titleformat{\subsection}[block]{\bfseries}{}{0em}{}
-\titleformat{\subsubsection}[block]{\bfseries\itshape}{}{0em}{}
-\titleformat{\paragraph}[runin]{\hspace{0.5in}\bfseries}{}{0em}{}[.]
-\titleformat{\subparagraph}[runin]{\hspace{0.5in}\bfseries\itshape}{}{0em}{}[.]
+\titleformat{\subsection}[block]{\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}[block]{\bfseries\itshape}{\thesubsubsection}{1em}{}
+\titleformat{\paragraph}[block]{\bfseries\itshape}{\theparagraph}{1em}{}
+\titleformat{\subparagraph}[block]{\bfseries\itshape}{\thesubparagraph}{1em}{}
 
 % Agregar archivo de bibliografía
 \addbibresource{referencias.bib}
@@ -119,6 +120,7 @@
 	\input{resumen} % El archivo resumen.tex solo debe contener el texto
 	
 	% Tabla de contenidos
+	\clearpage
 	\tableofcontents
 	
 	% Reiniciar contador de secciones para que la Introducción comience en 1
@@ -131,6 +133,11 @@
 	\clearpage
 	\section{Introducción}
 	\input{introduction}
+	
+	% Estado del Arte
+	\clearpage
+	\section{Estado del Arte}
+	\input{estado_del_arte}
 	
 	% Marco Teórico
 	\clearpage
