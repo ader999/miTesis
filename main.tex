@@ -32,7 +32,7 @@
 }
 
 % Paquete para estilo APA 7ma edición
-\usepackage[style=authoryear, backend=biber]{biblatex}
+\usepackage[style=apa, backend=biber]{biblatex}
 
 
 % Paquete para personalizar títulos según APA
@@ -87,7 +87,11 @@
 \newcommand{\carrera}{[Nombre de la Carrera]}
 \newcommand{\lugar}{Jalapa, Nueva Segovia, Nicaragua}
 
+% Paquete para alineación a la izquierda (formato APA)
+\usepackage{ragged2e}
+
 \begin{document}
+\RaggedRight % Alineación a la izquierda para todo el documento
 	
 	% Portada (Cover Page) según APA 7ma edición
 	\input{portada}

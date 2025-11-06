@@ -1,0 +1,19 @@
+# Archivos auxiliares de LaTeX
+*.aux
+*.log
+*.fdb_latexmk
+*.fls
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+*.synctex.gz
+*.toc
+missfont.log
+main.bcf-SAVE-ERROR
+
+# Archivo de salida principal
+*.pdf
+
+# Archivos de configuración del editor
+.vscode/
