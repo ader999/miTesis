@@ -7,7 +7,7 @@
 
 % Márgenes APA (1 pulgada en todos los lados)
 \usepackage[margin=1in]{geometry}
-
+      
 % Espaciado doble
 \usepackage{setspace}
 \doublespacing
@@ -94,7 +94,8 @@
 \usepackage{hyperref}
 
 \begin{document}
-\RaggedRight % Alineación a la izquierda para todo el documento
+\RaggedRight % Alineación a la izquierda para todo el documento.
+\setlength{\parindent}{0.5in} % Se asegura la sangría junto con RaggedRight
 	
 	% Portada (Cover Page) según APA 7ma edición
 	\input{portada}
