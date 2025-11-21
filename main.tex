@@ -40,6 +40,10 @@
 % Paquete para personalizar títulos según APA
 \usepackage{titlesec}
 
+% Renombrar títulos de índices a español
+\renewcommand{\listtablename}{Índice de tablas}
+\renewcommand{\listfigurename}{Índice de figuras}
+
 % Paquete para encabezados personalizados (números de página arriba a la derecha)
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -132,6 +136,16 @@
 	% Tabla de contenidos
 	\clearpage
 	\tableofcontents
+
+	% Índice de tablas
+	\clearpage
+	\listoftables
+	\addcontentsline{toc}{section}{Índice de tablas}
+
+	% Índice de figuras
+	\clearpage
+	\listoffigures
+	\addcontentsline{toc}{section}{Índice de figuras}
 	
 	% Reiniciar contador de secciones para que la Introducción comience en 1
 	% Esto asegura que la Introducción será la sección No. 1
