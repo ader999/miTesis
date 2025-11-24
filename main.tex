@@ -73,8 +73,11 @@
 
 \titleformat{\subsection}[block]{\bfseries}{\thesubsection}{1em}{}
 \titleformat{\subsubsection}[block]{\bfseries\itshape}{\thesubsubsection}{1em}{}
-\titleformat{\paragraph}[block]{\bfseries\itshape}{\theparagraph}{1em}{}
-\titleformat{\subparagraph}[block]{\bfseries\itshape}{\thesubparagraph}{1em}{}
+\titleformat{\paragraph}[runin]{\bfseries}{\theparagraph}{1em}{}[.]
+\titlespacing{\paragraph}{\parindent}{0pt}{0.5em}
+
+\titleformat{\subparagraph}[runin]{\bfseries\itshape}{\thesubparagraph}{1em}{}[.]
+\titlespacing{\subparagraph}{\parindent}{0pt}{0.5em}
 
 % Agregar archivo de bibliografía
 \addbibresource{referencias.bib}
