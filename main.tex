@@ -24,6 +24,7 @@
 % Paquete para tablas estilo APA
 \usepackage{booktabs}
 \usepackage{longtable}
+\usepackage{threeparttable}
 
 % Configuración de figuras según APA
 \captionsetup{
@@ -200,6 +201,7 @@
 	\clearpage
 	% Bibliografía (sin numeración y añadida a la tabla de contenidos)
 	\section*{Bibliografía}
+	\markboth{Bibliografía}{}
 	\addcontentsline{toc}{section}{Bibliografía}
 	\printbibliography[heading=none] % heading=none para que no cree su propio título
 	
