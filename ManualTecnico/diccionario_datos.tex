@@ -1,0 +1,136 @@
+\chapter{Diccionario de Datos}
+
+A continuación se describe la estructura detallada de las principales tablas de la base de datos, correspondientes a los modelos del sistema.
+
+\section{Entidad: Carrera}
+Representa las carreras universitarias ofertadas.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|p{6cm}|}
+\hline
+\textbf{Campo} & \textbf{Tipo} & \textbf{Descripción} \\ \hline
+id & AutoField & Identificador único. \\ \hline
+nombre & CharField(100) & Nombre de la carrera (Único). \\ \hline
+codigo & CharField(50) & Código interno de la carrera (Único). \\ \hline
+cine\_2011 & IntegerField & Clasificación CINE 2011. \\ \hline
+cine\_2013 & IntegerField & Clasificación CINE 2013. \\ \hline
+area\_formacion & CharField(100) & Área de formación (e.g., Educación, Tecnología). \\ \hline
+area\_disiplinaria & IntegerField & Código del área disciplinaria. \\ \hline
+\end{tabular}
+\caption{Diccionario de datos: Tabla Carrera}
+\end{table}
+
+\section{Entidad: Asignatura}
+Catálogo de asignaturas disponibles.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|p{6cm}|}
+\hline
+\textbf{Campo} & \textbf{Tipo} & \textbf{Descripción} \\ \hline
+id & AutoField & Identificador único. \\ \hline
+nombre & CharField(100) & Nombre de la asignatura (Único). \\ \hline
+\end{tabular}
+\caption{Diccionario de datos: Tabla Asignatura}
+\end{table}
+
+\section{Entidad: Plan de Estudio}
+Define la relación entre asignaturas y carreras, incluyendo detalles de carga horaria.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|p{6cm}|}
+\hline
+\textbf{Campo} & \textbf{Tipo} & \textbf{Descripción} \\ \hline
+id & AutoField & Identificador único. \\ \hline
+carrera\_id & ForeignKey & Referencia a la tabla Carrera. \\ \hline
+asignatura\_id & ForeignKey & Referencia a la tabla Asignatura. \\ \hline
+año & CharField(4) & Año académico (Números Romanos). \\ \hline
+trimestre & CharField(3) & Trimestre (Números Romanos). \\ \hline
+codigo & CharField(50) & Código único del plan. \\ \hline
+horas\_presenciales & IntegerField & Cantidad de horas presenciales. \\ \hline
+horas\_estudio\_independiente & IntegerField & Cantidad de horas de estudio autónomo. \\ \hline
+plan\_tematico & FileField & Archivo del plan temático adjunto. \\ \hline
+\end{tabular}
+\caption{Diccionario de datos: Tabla Plan\_de\_estudio}
+\end{table}
+
+\section{Entidad: AsignacionPlanEstudio}
+Tabla intermedia que asigna un plan de estudio a un usuario (docente).
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|p{6cm}|}
+\hline
+\textbf{Campo} & \textbf{Tipo} & \textbf{Descripción} \\ \hline
+id & AutoField & Identificador único. \\ \hline
+usuario\_id & ForeignKey & Referencia al usuario (Docente). \\ \hline
+plan\_de\_estudio\_id & ForeignKey & Referencia al Plan de Estudio. \\ \hline
+fecha\_asignacion & DateTime & Fecha de creación de la asignación. \\ \hline
+silabos\_creados & IntegerField & Contador de sílabos generados. \\ \hline
+guias\_creadas & IntegerField & Contador de guías generadas. \\ \hline
+\end{tabular}
+\caption{Diccionario de datos: Tabla AsignacionPlanEstudio}
+\end{table}
+
+\section{Entidad: Silabo}
+Contiene la planificación didáctica detallada de una asignatura.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|p{6cm}|}
+\hline
+\textbf{Campo} & \textbf{Tipo} & \textbf{Descripción} \\ \hline
+id & AutoField & Identificador único. \\ \hline
+codigo & CharField(20) & Código del sílabo. \\ \hline
+encuentros & IntegerField & Número de encuentros programados. \\ \hline
+fecha & DateField & Fecha de la planificación. \\ \hline
+unidad & CharField & Número de unidad (e.g., Unidad I). \\ \hline
+nombre\_de\_la\_unidad & CharField & Título de la unidad temática. \\ \hline
+contenido\_tematico & TextField & Descripción de los temas a tratar. \\ \hline
+objetivo\_conceptual & TextField & Objetivos conceptuales (Saber). \\ \hline
+objetivo\_procedimental & TextField & Objetivos procedimentales (Saber hacer). \\ \hline
+objetivo\_actitudinal & TextField & Objetivos actitudinales (Saber ser). \\ \hline
+asignacion\_plan\_id & ForeignKey & Referencia a la asignación del docente. \\ \hline
+\end{tabular}
+\caption{Diccionario de datos: Tabla Silabo (Campos principales)}
+\end{table}
+
+\section{Entidad: PlanTematico}
+Define la estructura macro de las unidades de una asignatura.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|p{6cm}|}
+\hline
+\textbf{Campo} & \textbf{Tipo} & \textbf{Descripción} \\ \hline
+id & AutoField & Identificador único. \\ \hline
+plan\_estudio\_id & ForeignKey & Referencia al Plan de Estudio asociado. \\ \hline
+unidades & CharField & Identificador de la unidad (e.g., Primera unidad). \\ \hline
+nombre\_de\_la\_unidad & CharField & Nombre descriptivo de la unidad. \\ \hline
+objetivo\_especificos & TextField & Objetivos específicos de la unidad. \\ \hline
+plan\_analitico & TextField & Detalle del plan analítico. \\ \hline
+\end{tabular}
+\caption{Diccionario de datos: Tabla PlanTematico}
+\end{table}
+
+\section{Entidad: Guia}
+Representa las guías de estudio específicas para cada encuentro, vinculadas a un sílabo.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|p{6cm}|}
+\hline
+\textbf{Campo} & \textbf{Tipo} & \textbf{Descripción} \\ \hline
+id & AutoField & Identificador único. \\ \hline
+silabo\_id & ForeignKey & Referencia al Sílabo padre. \\ \hline
+numero\_encuentro & IntegerField & Número secuencial del encuentro. \\ \hline
+fecha & DateField & Fecha de aplicación de la guía. \\ \hline
+unidad & CharField & Unidad a la que pertenece. \\ \hline
+objetivo\_aprendizaje\_1 & TextField & Objetivo de aprendizaje principal. \\ \hline
+actividad\_aprendizaje\_1 & TextField & Descripción de la actividad. \\ \hline
+tipo\_evaluacion\_1 & CharField & Tipo (Diagnóstica, Formativa, Sumativa). \\ \hline
+\end{tabular}
+\caption{Diccionario de datos: Tabla Guia (Campos principales)}
+\end{table}

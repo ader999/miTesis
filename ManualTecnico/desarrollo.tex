@@ -1,0 +1,35 @@
+\chapter{Desarrollo y Construcción}
+
+\section{Entorno de Desarrollo}
+El sistema fue construido utilizando el sistema operativo \textbf{Pop!\_OS} (una distribución de Linux basada en Ubuntu), aprovechando su estabilidad y herramientas para desarrolladores. Como entorno de desarrollo integrado (IDE) se utilizó \textbf{PyCharm}, que ofrece soporte avanzado para Python y Django.
+
+\section{Estructura del Proyecto}
+El proyecto sigue la estructura estándar de una aplicación Django, organizada en "apps" o módulos para separar la funcionalidad:
+
+\begin{verbatim}
+/raiz-del-proyecto
+|-- /manage.py          (Script de gestión de Django)
+|-- /plan_de_estudio    (Configuración del proyecto y lógica de la aplicación)
+|   |-- settings.py     (Configuración global)
+|   |-- models.py       (Modelos de base de datos)
+|   |-- views.py        (Controladores y lógica de negocio)
+|   |-- ai_generators.py (Módulo de generación con IA)
+|-- /plantillas         (Archivos HTML del Frontend)
+|-- /static             (Archivos CSS, JS, imágenes de Bootstrap)
+|-- /requirements.txt   (Lista de dependencias de Python)
+\end{verbatim}
+
+\section{Despliegue e Infraestructura}
+El sistema se encuentra desplegado en \textbf{Railway}, una plataforma de infraestructura como servicio (PaaS). Railway facilita el despliegue continuo y la gestión de:
+\begin{itemize}
+    \item El servicio web de Django (Gunicorn).
+    \item La base de datos PostgreSQL gestionada.
+    \item Las variables de entorno para configuración segura.
+\end{itemize}
+
+\section{Funcionalidades Clave Desarrolladas}
+\begin{itemize}
+    \item \textbf{Formulario Dinámico:} Reemplazo de la tabla de Excel por una interfaz web amigable.
+    \item \textbf{Generación con IA:} Módulo que procesa los programas de asignatura para sugerir contenido de sílabos.
+    \item \textbf{Exportación:} Funcionalidad para generar archivos Excel idénticos al formato institucional original.
+\end{itemize}

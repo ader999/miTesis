@@ -1,0 +1,108 @@
+\chapter{Guía de Instalación y Despliegue}
+
+Esta sección detalla los pasos necesarios para instalar, configurar y desplegar el sistema \textbf{PLANEAUML} tanto en un entorno de desarrollo local como en un entorno de producción utilizando Railway.
+
+\section{Requisitos Previos}
+
+Antes de comenzar, asegúrese de tener instalado el siguiente software en su sistema:
+
+\begin{itemize}
+    \item \textbf{Git:} Para el control de versiones y clonado del repositorio.
+    \item \textbf{Python (3.8 o superior):} Lenguaje base del backend.
+    \item \textbf{Docker Desktop / Engine:} Para ejecutar el contenedor de MinIO (almacenamiento local).
+    \item \textbf{PostgreSQL:} Motor de base de datos (opcional si se usa SQLite en desarrollo, pero recomendado para paridad con producción).
+\end{itemize}
+
+\section{Instalación en Entorno Local}
+
+\subsection{1. Clonar el Repositorio}
+Obtenga el código fuente del proyecto desde el repositorio oficial en GitHub:
+
+\begin{verbatim}
+git clone https://github.com/ader999/plan_de_estudio.git
+cd plan_de_estudio
+\end{verbatim}
+
+\subsection{2. Configuración del Entorno Virtual}
+Es recomendable utilizar un entorno virtual para aislar las dependencias del proyecto:
+
+\begin{verbatim}
+# Crear el entorno virtual
+python -m venv venv
+
+# Activar el entorno virtual
+# En Windows:
+venv\Scripts\activate
+# En Linux/macOS:
+source venv/bin/activate
+\end{verbatim}
+
+\subsection{3. Instalación de Dependencias}
+Instale las librerías necesarias listadas en el archivo \texttt{requirements.txt}:
+
+\begin{verbatim}
+pip install -r requirements.txt
+\end{verbatim}
+
+\subsection{4. Configuración de Variables de Entorno}
+Cree un archivo llamado \texttt{.env} en la raíz del proyecto. Este archivo debe contener las credenciales de base de datos, claves de API y configuración de almacenamiento. Copie y configure las siguientes variables:
+
+\begin{verbatim}
+# Configuración de Base de Datos
+DB_HOST=localhost
+DB_NAME=nombre_base_datos
+DB_PASSWORD=tu_contraseña
+DB_PORT=5432
+DB_USER=tu_usuario
+
+# Claves de API para IA y Servicios Externos
+GEMINI_API_KEY=tu_clave_google_gemini
+OPENAI_API_KEY=tu_clave_openai
+RESEND=tu_clave_resend_email
+
+# Configuración de MinIO (Almacenamiento de Archivos)
+MINIO_ACCESS_KEY_ID=minioadmin
+MINIO_SECRET_ACCESS_KEY=minioadmin
+MINIO_BUCKET_NAME=nombre_bucket
+MINIO_S3_ENDPOINT_URL=http://localhost:9000
+\end{verbatim}
+
+\subsection{5. Configuración de MinIO (Docker)}
+Para el almacenamiento local de archivos, se utiliza MinIO ejecutándose en un contenedor Docker. Ejecute el siguiente comando para levantar el servicio:
+
+\begin{verbatim}
+docker run -p 9000:9000 -p 9001:9001 \
+  -e "MINIO_ROOT_USER=minioadmin" \
+  -e "MINIO_ROOT_PASSWORD=minioadmin" \
+  quay.io/minio/minio server /data --console-address ":9001"
+\end{verbatim}
+
+Una vez activo, acceda a \texttt{http://localhost:9001}, cree un \textit{bucket} con el nombre definido en \texttt{MINIO\_BUCKET\_NAME} y asegúrese de que las credenciales coincidan con su archivo \texttt{.env}.
+
+\subsection{6. Base de Datos y Ejecución}
+Realice las migraciones para crear la estructura de la base de datos y ejecute el servidor de desarrollo:
+
+\begin{verbatim}
+# Aplicar migraciones
+python manage.py migrate
+
+# Crear superusuario (opcional, para acceso admin)
+python manage.py createsuperuser
+
+# Ejecutar servidor
+python manage.py runserver
+\end{verbatim}
+
+El sistema estará accesible en \texttt{http://127.0.0.1:8000}. Asegúrese de configurar los dominios permitidos en \texttt{settings.py} si es necesario.
+
+\section{Despliegue en Producción (Railway)}
+
+Para desplegar el sistema en la nube utilizando Railway, siga estos pasos:
+
+\begin{enumerate}
+    \item \textbf{Inicio de Sesión:} Regístrese o inicie sesión en \href{https://railway.app/}{Railway}.
+    \item \textbf{Nuevo Proyecto:} Seleccione "New Project" y elija "Deploy from GitHub repo".
+    \item \textbf{Conectar Repositorio:} Busque y seleccione el repositorio \texttt{plan\_de\_estudio}.
+    \item \textbf{Configuración de Variables:} Antes de finalizar el despliegue, vaya a la pestaña "Variables" del servicio y agregue todas las variables definidas en su archivo \texttt{.env} local, actualizando los valores para el entorno de producción (especialmente las credenciales de la base de datos que Railway provee automáticamente si agrega un servicio de PostgreSQL).
+    \item \textbf{Despliegue:} Railway detectará automáticamente el archivo \texttt{requirements.txt} y construirá el proyecto. Una vez finalizado, le proporcionará una URL pública para acceder al sistema.
+\end{enumerate}

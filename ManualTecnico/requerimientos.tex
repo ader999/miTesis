@@ -1,0 +1,87 @@
+\chapter{Requerimientos del Sistema}
+
+Para el correcto funcionamiento y despliegue del sistema, se detallan a continuación los requerimientos funcionales y no funcionales, así como las especificaciones técnicas.
+
+\section{Requerimientos Funcionales (RF)}
+
+\subsection{Módulo de Autenticación y Seguridad}
+
+El acceso al sistema PLANEAUML está protegido por un módulo de autenticación robusto que garantiza que solo los usuarios autorizados puedan ingresar. Como se muestra en la Figura \ref{fig:login}, la interfaz de inicio de sesión es limpia y directa, solicitando al usuario sus credenciales institucionales (correo electrónico y contraseña). Este módulo es el primer punto de contacto y asegura la protección de las vistas administrativas y docentes.
+\textbf{RF-001 Inicio de Sesión:} El sistema permite el acceso mediante credenciales únicas (usuario/correo y contraseña).
+\textbf{RF-002 Gestión de Roles:} Diferencia las vistas y permisos según el rol del usuario (Administrativo o Docente).
+\textbf{RF-003 Protección de Vistas:} Restringe el acceso a URLs administrativas para usuarios no autorizados.
+
+
+
+\subsection{Módulo Administrativo (Panel de Control)}
+
+El núcleo de la gestión académica reside en el Módulo Administrativo. Una vez que un usuario con rol de administrador inicia sesión, es dirigido al Panel de Control (Dashboard), ilustrado en la Figura \ref{fig:admin_dashboard}. Desde esta interfaz centralizada, el administrador tiene control total sobre la estructura académica, permitiéndole gestionar usuarios, carreras y asignaturas. El diseño visual utiliza indicadores de estado (checks verdes y cruces rojas) para ofrecer una vista rápida del progreso de las planificaciones.
+El sistema permite la \textbf{RF-004 Gestión de Usuarios}, facilitando el CRUD (Crear, Leer, Actualizar, Eliminar) de usuarios y la asignación de roles. También incluye la \textbf{RF-005 Gestión de Estructura Académica} para administrar carreras y asignaturas, y la \textbf{RF-006 Gestión de Planes de Estudio} para configurar nuevos planes con sus respectivos detalles.
+
+Además, se contempla la \textbf{RF-007 Asignación de Carga}, que permite asignar un plan de estudio a un docente, bajo la regla de no duplicidad. El \textbf{RF-008 Monitoreo y Seguimiento} ofrece visualización en tiempo real del estado de los planes, y el \textbf{RF-009 Filtrado de Datos} facilita la búsqueda de sílabos y planes por diversos criterios.
+
+
+
+\subsection{Módulo Docente}
+
+El Módulo Docente está diseñado pensando en la experiencia del usuario final: el maestro. Al ingresar al sistema, el docente no se enfrenta a menús complejos, sino que visualiza inmediatamente las asignaturas que le han sido asignadas para el periodo actual, presentadas en forma de tarjetas informativas como se aprecia en la Figura \ref{fig:docente_dashboard}. Este flujo de trabajo simplificado permite al docente centrarse en su tarea principal: la planificación didáctica, facilitando el llenado de sílabos y la generación de contenido asistida por Inteligencia Artificial.
+El docente cuenta con la \textbf{RF-010 Visualización de Carga}, viendo únicamente sus asignaturas asignadas. El \textbf{RF-011 Llenado de Sílabos} se realiza mediante un formulario digital con validaciones. Se integra la \textbf{RF-012 Generación con IA} para completar campos automáticamente y la \textbf{RF-013 Guía de Estudio Independiente} para planificar actividades autónomas. Finalmente, la \textbf{RF-014 Visualización de Progreso} muestra el avance mediante indicadores numéricos.
+
+
+
+\subsection{Módulo de Reportes y Exportación}
+El sistema permite la \textbf{RF-015 Exportación a Excel} de la planificación completa y la \textbf{RF-016 Exportación a Word} de la secuencia didáctica. También facilita la \textbf{RF-017 Descarga de Plan Temático} base de la asignatura.
+
+\section{Requerimientos No Funcionales (RNF)}
+
+\subsection{Usabilidad y Experiencia de Usuario (UX/UI)}
+En cuanto a UX/UI, se garantiza la \textbf{RNF-001 Responsividad} para diversos dispositivos, la \textbf{RNF-002 Facilidad de Uso} para una rápida elaboración de planes, y la \textbf{RNF-003 Interactividad} con validaciones en tiempo real.
+
+\subsection{Rendimiento y Disponibilidad}
+Se asegura la \textbf{RNF-004 Disponibilidad} 24/7 mediante despliegue en la nube y \textbf{RNF-005 Tiempos de Respuesta} eficientes en base de datos y API.
+
+\subsection{Seguridad y Datos}
+La \textbf{RNF-006 Integridad de Datos} se mantiene con una base de datos relacional, y la \textbf{RNF-007 Encriptación} protege las contraseñas de los usuarios.
+
+\section{Reglas de Negocio}
+Se establecen reglas como la \textbf{Unicidad de Asignación}, impidiendo asignar el mismo plan a múltiples docentes simultáneamente. La \textbf{Estandarización} exige que los documentos exportados cumplan el formato oficial, y la \textbf{Dependencia} requiere un Plan de Estudio y Asignación previos para crear un sílabo.
+
+\section{Requerimientos de Hardware y Despliegue}
+
+El sistema ha sido desplegado en la plataforma de nube \textbf{Railway}, lo que elimina la necesidad de gestionar hardware físico directo, pero implica los siguientes recursos en el entorno de hosting:
+
+\subsection{Servidor (Entorno Cloud - Railway)}
+\begin{itemize}
+    \item \textbf{Plataforma:} Railway (PaaS).
+    \item \textbf{Recursos de Cómputo:} Instancia con capacidad para ejecutar aplicaciones Python/Django y contenedores Docker.
+    \item \textbf{Base de Datos:} Instancia gestionada de PostgreSQL.
+    \item \textbf{Almacenamiento de Objetos:} MinIO (o servicio compatible con S3) para la gestión de archivos.
+    \item \textbf{Almacenamiento en Disco:} Espacio suficiente para los archivos estáticos y la base de datos (se escala según demanda).
+\end{itemize}
+
+\subsection{Cliente (Usuario Final)}
+\begin{itemize}
+    \item Dispositivo con navegador web moderno (Google Chrome, Mozilla Firefox, Edge, Safari).
+    \item Conexión a Internet estable para acceder a la aplicación web.
+\end{itemize}
+
+\section{Requerimientos de Software y Entorno de Desarrollo}
+
+El sistema fue construido y requiere el siguiente stack de software:
+
+\subsection{Entorno de Servidor / Producción}
+\begin{itemize}
+    \item \textbf{Sistema Operativo:} Linux (Contenedor en Railway).
+    \item \textbf{Lenguaje de Programación:} Python (versión compatible con Django 4.x/5.x).
+    \item \textbf{Framework Backend:} Django.
+    \item \textbf{Base de Datos:} PostgreSQL.
+    \item \textbf{Servidor Web:} Gunicorn / Nginx (configurado internamente por Railway o Dockerfile).
+\end{itemize}
+
+\subsection{Entorno de Desarrollo (Local)}
+El desarrollo se llevó a cabo en el siguiente entorno:
+\begin{itemize}
+    \item \textbf{Sistema Operativo:} Pop!\_OS (Distribución de Linux).
+    \item \textbf{IDE:} PyCharm.
+    \item \textbf{Control de Versiones:} Git.
+\end{itemize}

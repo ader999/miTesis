@@ -1,0 +1,18 @@
+\chapter{Arquitectura y Tecnologías}
+
+\section{Stack Tecnológico}
+
+El sistema ha sido construido utilizando un conjunto de tecnologías robustas y modernas. En el \textbf{Backend}, se emplea Python con el framework \textbf{Django}, elegido por su seguridad y escalabilidad. Para el \textbf{Frontend}, se utiliza HTML5, CSS3, \textbf{Bootstrap} y JavaScript, garantizando un diseño responsivo. La \textbf{Base de Datos} es gestionada por \textbf{PostgreSQL}, un sistema relacional potente.
+
+La \textbf{Inteligencia Artificial} se integra mediante modelos como Gemini (vía \texttt{google-generativeai}) y OpenAI para la generación de contenido académico. El \textbf{Almacenamiento de Archivos} se maneja con \textbf{MinIO}, compatible con S3, para guardar programas de asignatura. Además, se utilizan librerías clave como \textbf{openpyxl} y \textbf{python-docx} para la manipulación de documentos, \textbf{djangorestframework} para APIs, y \textbf{django-import-export} para la gestión de datos.
+
+\section{Arquitectura del Sistema}
+
+El sistema sigue la arquitectura \textbf{MVT (Modelo-Vista-Template)}, el patrón de diseño estándar de Django. El \textbf{Modelo} define la estructura de datos y lógica de negocio. La \textbf{Vista} maneja la lógica de la aplicación y procesa las solicitudes. Finalmente, el \textbf{Template} constituye la capa de presentación que renderiza la interfaz de usuario (Ver Figura \ref{fig:arquitectura_mvt}).
+
+
+
+\section{Diseño de Base de Datos}
+El sistema utiliza \textbf{PostgreSQL} para almacenar información de entidades clave. La \textbf{Carrera} y \textbf{Asignatura} definen la oferta académica. El \textbf{Plan de Estudio} relaciona ambas entidades con detalles curriculares. El \textbf{Usuario} gestiona roles y permisos. La \textbf{Asignación} vincula docentes con planes. El \textbf{Sílabo} detalla la planificación didáctica, y el \textbf{Estudio Independiente} registra actividades autónomas (Ver Figura \ref{fig:diagrama_er}).
+
+

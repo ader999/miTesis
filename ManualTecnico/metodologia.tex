@@ -1,0 +1,134 @@
+\chapter{Metodología de Desarrollo}
+
+Para el desarrollo del sistema \textbf{PLANEAUML}, se adoptó una metodología ágil híbrida que integra los principios fundamentales de \textbf{Scrum} y la flexibilidad de \textbf{Kanban}. Esta elección estratégica respondió a la necesidad de gestionar un proyecto con requerimientos evolutivos y plazos de entrega estrictos. La naturaleza iterativa e incremental de estas metodologías permitió una adaptación continua a las necesidades detectadas durante el proceso de construcción del software, asegurando que cada incremento aportara valor real a la gestión académica.
+
+La adopción de este enfoque permitió mitigar riesgos técnicos desde las etapas tempranas, validar funcionalidades con rapidez y mantener un ritmo de trabajo sostenible y constante a lo largo de todo el ciclo de vida del proyecto.
+
+\section{Enfoque Ágil y Marco de Trabajo}
+
+El ciclo de vida del desarrollo se estructuró en iteraciones cortas y de duración fija, denominadas \textit{sprints}, con una duración de una semana cada uno. Este ciclo corto fue crucial para mantener el foco en objetivos alcanzables y facilitar la inspección y adaptación constante.
+
+\subsection{Roles del Proyecto}
+El desarrollo del sistema fue llevado a cabo por un único desarrollador (el autor de este trabajo), quien asumió múltiples roles técnicos y de gestión. Sin embargo, se contó con la colaboración activa de los docentes de la sede para las pruebas y validación.
+
+\begin{itemize}
+    \item \textbf{Product Owner (Dueño del Producto):} Rol asumido en colaboración con la Coordinación Académica, definiendo la visión y priorizando las necesidades del negocio.
+    \item \textbf{Desarrollador Full-Stack (Autor):} Responsable único de la arquitectura, implementación del backend/frontend, diseño de base de datos y despliegue.
+    \item \textbf{Docentes (Testers):} Grupo de catedráticos de la universidad que participaron activamente en las pruebas piloto, validando la usabilidad y reportando errores funcionales.
+\end{itemize}
+
+\subsection{Ceremonias Ágiles}
+Para garantizar la transparencia y el control del progreso, se llevaron a cabo las siguientes ceremonias en cada sprint:
+
+\begin{itemize}
+    \item \textbf{Sprint Planning (Planificación del Sprint):} Realizada al inicio de cada semana. En esta sesión se seleccionaban las historias de usuario del \textit{Product Backlog} que se abordarían en la iteración, definiendo el \textit{Sprint Backlog} y los criterios de aceptación.
+    \item \textbf{Daily Stand-up (Reunión Diaria):} Sesiones breves de seguimiento para revisar el progreso diario, sincronizar actividades y detectar bloqueos tempranos.
+    \item \textbf{Sprint Review (Revisión del Sprint):} Al finalizar la semana, se presentaba el incremento funcional desarrollado para validar que cumpliera con los requisitos definidos.
+    \item \textbf{Sprint Retrospective (Retrospectiva):} Análisis del proceso de trabajo para identificar mejoras en la eficiencia y calidad para el siguiente sprint.
+\end{itemize}
+
+\subsection{Artefactos}
+\begin{itemize}
+    \item \textbf{Product Backlog:} Inventario dinámico y priorizado de todas las funcionalidades, requisitos no funcionales y mejoras deseadas para el sistema.
+    \item \textbf{Sprint Backlog:} Subconjunto de ítems del Product Backlog seleccionados para ser completados durante un sprint específico.
+    \item \textbf{Incremento de Software:} La suma de todos los ítems del Product Backlog completados durante un sprint y el valor de los incrementos de todos los sprints anteriores.
+\end{itemize}
+
+\subsection{Estrategia de Pruebas y Aseguramiento de la Calidad}
+Para garantizar la estabilidad del sistema y prevenir regresiones (que nuevas funcionalidades rompan las existentes), se implementó una estricta política de pruebas automatizadas.
+\begin{itemize}
+    \item \textbf{Pruebas Automatizadas con Pytest:} Se configuró un entorno de pruebas utilizando el framework \texttt{pytest}. Después de cada cambio significativo en el código o implementación de una nueva funcionalidad, se ejecutaba la suite de pruebas completa.
+    \item \textbf{Integración Continua:} Esta práctica aseguró que el sistema se mantuviera estable durante todo el ciclo de desarrollo, permitiendo detectar y corregir errores de integración de manera inmediata antes de pasar a las pruebas manuales con los docentes.
+\end{itemize}
+
+\section{Cronograma de Desarrollo (7 Meses)}
+
+El desarrollo del sistema \textbf{PLANEAUML} se extendió a lo largo de un periodo de 7 meses, abarcando desde la concepción inicial hasta la estabilización final tras las pruebas piloto. Este tiempo permitió no solo la construcción del software, sino también múltiples iteraciones de mejora basadas en el feedback real de los usuarios.
+
+\begin{description}
+    \item[Mes 1: Análisis y Fundamentación] \hfill \\
+    Se establecieron los cimientos del proyecto.
+    \begin{itemize}
+        \item Levantamiento detallado de requerimientos con la Coordinación Académica.
+        \item Diseño del Modelo Entidad-Relación (MER) y definición de la arquitectura tecnológica (Django + PostgreSQL).
+        \item Configuración de entornos de desarrollo y repositorios.
+    \end{itemize}
+
+    \item[Mes 2: Desarrollo del Core y Autenticación] \hfill \\
+    Implementación de la estructura base y seguridad.
+    \begin{itemize}
+        \item Desarrollo del sistema de usuarios, roles y permisos personalizados.
+        \item Construcción de los CRUDs para la gestión de datos maestros (Carreras, Asignaturas).
+        \item Diseño de la interfaz base y navegación.
+    \end{itemize}
+
+    \item[Mes 3: Módulo de Planificación (Sílabos)] \hfill \\
+    Desarrollo del componente más complejo del sistema.
+    \begin{itemize}
+        \item Implementación de formularios dinámicos para la captura de sílabos.
+        \item Lógica de validación y persistencia de estructuras jerárquicas (Unidades, Temas).
+        \item Pruebas unitarias de la lógica de guardado.
+    \end{itemize}
+
+    \item[Mes 4: Integración de IA y Servicios Externos] \hfill \\
+    Fase de innovación tecnológica.
+    \begin{itemize}
+        \item Investigación e integración de APIs de Inteligencia Artificial (Gemini/OpenAI).
+        \item Desarrollo del módulo de generación de contenido asistido.
+        \item Implementación del almacenamiento de archivos estáticos y media.
+    \end{itemize}
+
+    \item[Mes 5: Expansión Funcional (Guías y Planes)] \hfill \\
+    Completitud de la suite de documentos académicos.
+    \begin{itemize}
+        \item Desarrollo de módulos para Guías de Estudio y Planes de Clase.
+        \item Automatización de la herencia de datos desde el Sílabo.
+        \item Implementación de la exportación a formatos Excel oficiales.
+    \end{itemize}
+
+    \item[Mes 6: Pruebas Piloto y Despliegue Inicial] \hfill \\
+    Primera puesta en producción controlada.
+    \begin{itemize}
+        \item Despliegue en infraestructura cloud (Railway).
+        \item Inicio del programa piloto con un grupo selecto de docentes.
+        \item Monitoreo de rendimiento y detección de errores en entorno real.
+    \end{itemize}
+
+    \item[Mes 7: Estabilización y Corrección de Errores] \hfill \\
+    Refinamiento basado en el uso real.
+    \begin{itemize}
+        \item Resolución de incidencias reportadas durante el piloto.
+        \item Optimización de tiempos de respuesta y usabilidad.
+        \item Ajustes finales en la generación de reportes y formatos de impresión.
+    \end{itemize}
+\end{description}
+
+\section{Desafíos Técnicos y Soluciones}
+
+Durante el proceso de desarrollo de 7 meses, el autor enfrentó varios retos técnicos significativos que requirieron investigación y soluciones específicas:
+
+\subsection{Implementación de Almacenamiento con MinIO}
+Uno de los mayores desafíos fue la gestión eficiente de archivos (programas de asignatura, evidencias) en un entorno de despliegue efímero como el de los contenedores.
+\begin{itemize}
+    \item \textbf{Problema:} El almacenamiento local no era persistente en el despliegue en la nube, y las soluciones comerciales como AWS S3 presentaban barreras de entrada para el proyecto.
+    \item \textbf{Solución:} Se implementó \textbf{MinIO}, un servidor de almacenamiento de objetos de alto rendimiento compatible con la API de S3. Esto permitió establecer un sistema de gestión de archivos robusto y estandarizado, garantizando la persistencia y seguridad de los documentos subidos por los docentes, tanto en desarrollo como en producción, sin depender de costos elevados de servicios de terceros.
+\end{itemize}
+
+\subsection{Latencia en la Generación con IA}
+La integración de modelos de lenguaje grandes (LLMs) introdujo tiempos de espera que afectaban la experiencia de usuario.
+\begin{itemize}
+    \item \textbf{Solución:} Se implementaron llamadas asíncronas y feedback visual (spinners de carga) en el frontend para mantener al usuario informado. Además, se optimizaron los \textit{prompts} para reducir la longitud de los tokens generados sin perder calidad, mejorando los tiempos de respuesta.
+\end{itemize}
+
+\subsection{Complejidad del Modelo Académico}
+La estructura de los planes de estudio es altamente jerárquica y variable entre carreras.
+\begin{itemize}
+    \item \textbf{Solución:} Se diseñó un modelo de base de datos relacional altamente normalizado en PostgreSQL, complementado con validaciones estrictas a nivel de aplicación (Django) para asegurar la integridad referencial y la consistencia de los datos académicos complejos.
+\end{itemize}
+
+\subsection{Exportación de Datos a Formatos Excel Originales}
+Otro desafío significativo fue la exportación de los datos en el formato original que se utilizaba antes de la implementación de PLANEAUML.
+\begin{itemize}
+    \item \textbf{Problema:} La compatibilidad con los archivos anteriores resultó ser muy complicada debido a la estructura compleja y el diseño tabular específico de las tablas de Excel preexistentes.
+    \item \textbf{Solución:} Se desarrollaron scripts de exportación personalizados utilizando librerías avanzadas de manipulación de hojas de cálculo, lo que permitió mapear los datos del sistema a las celdas exactas de las plantillas originales, preservando el formato visual requerido por la institución.
+\end{itemize}
