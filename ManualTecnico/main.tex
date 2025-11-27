@@ -8,6 +8,8 @@
 \usepackage{hyperref}
 \usepackage{titlesec}
 \usepackage{parskip}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
 \usepackage{listings}
 \usepackage{xcolor}
 
@@ -43,10 +45,12 @@
 
 % Configuración de títulos de capítulos
 \titleformat{\chapter}[display]
-  {\centering\normalfont\huge\bfseries}
+  {\centering\normalfont\Large\bfseries}
   {\chaptertitlename\ \thechapter}
-  {20pt}
-  {\Huge}
+  {10pt}
+  {\Large}
+
+\titlespacing*{\chapter}{0pt}{-30pt}{20pt}
 
 % Configuración de hipervínculos
 \hypersetup{
